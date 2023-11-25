@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Sell
+{% endblock %}
+
+
+{% block main %}
+
+<form action="/sell" method="post">
+    <script>
+        function setvalue(tvalue){
+            document.getElementById('symbol').value = tvalue.trim();
+            }
+    </script>
+    <h2>Available</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Total Shares</th>
+                    <th>Select Shares</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for each in availsysm %}
+                <tr>
+                    <td>{{ each.symbol }}</td>
+                    <td>{{ each.stock }}</td>
+                    <td><input name="sellstk" id="sellstk" type="radio" value=" {{each.symbol}} " onchange="setvalue(this.value)"> </select></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        or select
+        <div class="mb-3">
+            <select name="symbol" onchange="setvalue(this.value)">
+                {% for each in availsysm %}
+                    <option value = "{{ each.symbol }}"> {{ each.symbol }} </option>
+                {% endfor %}
+            </select>
+        </div>
+
+    <h3> Sell </h3>
+    <div class="mb-3">
+        <input autocomplete="on" autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="Symbol" type="text">
+        <input autocomplete="on" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="Shares" type="number">
+    </div>
+    <button class="btn btn-primary"  type="submit">Sell</button>
+</form>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Account Info
+{% endblock %}
+
+{% block main %}
+        <h2>Account Info</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for each in trans %}
+                <tr>
+                    <td>{{ each.symbol }}</td>
+                    <td>{{ each.symbol }}</td>
+                    <td>{{ each.shares }} </td>
+                    <td>${{ each.price }} </td>
+                    <td>${{ -(each.shares * each.price)|round(2) }} </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td border=3px solid #aaa><b>Cash Balance : </b></td>
+                    <td>${{ cash }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td border=3px solid #aaa><b>TOTAL : </b></td>
+                    <td>${{ total }}</td>
+                </tr>
+            </tbody>
+        </table>
+{% endblock %}

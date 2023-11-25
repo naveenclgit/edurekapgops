@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: sort1 gave best perforamcne on sorted records sorted50000.txt.
+
+sort2 uses: Merge Sort
+
+How do you know?: sort2 gave best perfromacne on random records random50000.txt,
+
+sort3 uses: Selection Sort
+
+How do you know?: sort3 gave equal amount of perfomance on all files, sorted or not. 

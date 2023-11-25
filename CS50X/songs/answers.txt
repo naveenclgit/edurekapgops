@@ -1,0 +1,11 @@
+
+I would characterize the listener as engergetic an playful in Yellow and Orange.
+
+Its not the right way to caculate the aura as it could be only during certain times that listner listens to these songs.
+And 100 is not a sufficent enough sample size
+
++-------------+--------------+-------------------+
+| avg(energy) | avg(valence) | avg(danceability) |
++-------------+--------------+-------------------+
+| 0.65906     | 0.484443     | 0.71646           |
++-------------+--------------+-------------------+
