@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	All Reports
+{% endblock %}
+
+{% block main %}    
+	<h1>Reports </h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+	        	<select id="mySelect" name="report" style="width:200px">
+                		<option value = "" selected="selected" disabled> </option>
+                    		<option value = "buses"> Buses </option>
+                    		<option value = "routes"> Routes </option>
+                    		<option value = "bookings"> Bookings </option>
+				
+            		</select> 
+			
+
+			 <div class="tableContainer" id="buses" style="display: none;">
+			    <!-- Table 1 HTML goes here -->
+				<h1>Buses</h1>
+				<table>
+				    <tr>
+					<th> Bus </th>	
+				        <th> Seats </th>
+				        <th> Photo </th>
+				    </tr>
+				{% for eachb in buses %}
+					<tr>
+						<td>{{ eachb[0] }}</td>
+						<td>{{ eachb[1] }}</td>
+						<td><img src="data:image/jpeg;base64,{{ eachb[2] }}" alt="Image Placeholder" /></td>
+					</tr>
+				{% endfor %}
+    
+				</table>		
+			  </div>
+  
+			  <div class="tableContainer" id="routes" style="display: none;">
+			    <!-- Table 2 HTML goes here -->
+				<h1>Routes</h1>
+                                <table>
+                                    <tr>
+                                        <th> Bus </th>
+                                        <th> From </th>
+                                        <th> To </th>
+                                        <th> Date </th>
+                                        <th> Price </th>
+                                    </tr>
+                                {% for eachr in routes %}
+                                        <tr>
+                                                <td>{{ eachr[0] }}</td>
+                                                <td>{{ eachr[1] }}</td>
+                                                <td>{{ eachr[2] }}</td>
+                                                <td>{{ eachr[3] }}</td>
+                                                <td>{{ eachr[4] }}</td>
+                                        </tr>
+                                {% endfor %}
+
+                                </table>
+			  </div>
+  
+			  <div class="tableContainer" id="bookings" style="display: none;">
+			    <!-- Table 3 HTML goes here -->
+				<h1>Bookings</h1>
+				<table>
+                                    <tr>
+                                        <th> Traveller </th>
+                                        <th> Date of Booking </th>
+                                        <th> Seats </th>
+                                        <th> Date of Travel </th>
+                                        <th> From </th>
+                                        <th> To </th>
+                                        <th> Payment </th>
+                                        <th> Brand </th>
+                                    </tr>
+                                {% for eachbk in bookings %}
+                                        <tr>
+                                                <td>{{ eachbk[0] }}</td>
+                                                <td>{{ eachbk[1] }}</td>
+                                                <td>{{ eachbk[2] }}</td>
+                                                <td>{{ eachbk[3] }}</td>
+                                                <td>{{ eachbk[4] }}</td>
+                                                <td>{{ eachbk[5] }}</td>
+                                                <td>{{ eachbk[6] }}</td>
+                                                <td>{{ eachbk[7] }}</td>
+                                        </tr>
+                                {% endfor %}
+
+                                </table>
+				
+			  <script>
+				    $(document).ready(function() {
+				      $('#mySelect').change(function() {
+				        var selectedOption = $(this).val();
+				        $('.tableContainer').hide();
+				        $('#' + selectedOption).show();
+      					});
+    				     });
+  			</script>
+			  </div>
+
+{% endblock %}

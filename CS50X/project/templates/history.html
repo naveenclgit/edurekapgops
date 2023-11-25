@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	History
+{% endblock %}
+
+{% block main %}
+
+    <h1>Booking and Cancellation History</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+        <form>
+             <h1>Current Bookings</h1>
+            <table>
+                   <thead>
+                          <tr>
+                              <th>From </th>
+                              <th>To</th>
+                              <th>Date of Travel</th>
+                              <th>Date Booked</th>
+                              <th>Seats</th>
+                              <th>Select</th>
+                         </tr>
+                  </thead>
+                  <tbody>
+                       {% for each in mybookings %}
+                          <tr>
+                            <td>{{ each[1] }}</td>
+                            <td>{{ each[2] }}</td>
+                            <td>{{ each[3] }}</td>
+                            <td>{{ each[4] }}</td>
+                            <td>{{ each[5] }}</td>
+                          </tr>
+                      {% endfor %}
+                  </tbody>
+           </table>
+	   <h1>Past Bookings</h1>
+	<table>
+       <thead>
+              <tr>
+                  <th>From </th>
+                  <th>To</th>
+                  <th>Date of Travel</th>
+                  <th>Seats</th>
+                  <th>Payment Status</th>
+                  <th>Ticket Status</th>
+                  <th>Status Updated</th>
+             </tr>
+      </thead>
+      <tbody>
+           {% for each in mybookingshist %}
+              <tr>
+                <td>{{ each[0] }}</td>
+                <td>{{ each[1] }}</td>
+                <td>{{ each[2] }}</td>
+                <td>{{ each[3] }}</td>
+                <td>{{ each[4] }}</td>
+                <td>{{ each[5] }}</td>
+                <td>{{ each[6] }}</td>
+              </tr>
+          {% endfor %}
+      </tbody>
+	</table>
+        </form>
+
+
+    </form>
+{% endblock %}

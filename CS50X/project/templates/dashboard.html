@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+        Home
+{% endblock %}
+
+{% block main %}
+
+    <h1>Dashboard</h1>
+    {% if session["user_id"] %}
+        <p>Welcome, {{ session.email }}! </p>
+        <a href="/logout">Logout</a>
+
+    {% elif session["admin_id"] %}
+	<p>Welcome, {{ session.name}}! </p>
+        <a href="/logout">Logout</a>
+
+    {% else %}
+        <p>Please login to access the dashboard</p>
+        <a href="/login">Login</a>
+		
+    {% endif %}
+{% endblock %}
+

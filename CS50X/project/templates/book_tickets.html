@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Booking
+{% endblock %}
+
+{% block main %}
+
+    <h1>Book your tickets</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+        <form method="POST" action="/book_ticket">
+        <script>
+        function setvalue(tvalue){
+            document.getElementById('trip').value = tvalue.trim();
+            }
+        </script>
+
+                <div class="mb-3">
+                        <select name="trip" onchange="setvalue(this.value)" style="width:500px" background-color: "gray">
+
+                        <option value = "" selected="selected" disabled> </option>
+                        {% for each in trips %}
+                                <option value = "{{ each[0] }}"> {{ each[1] }}| {{each[2] }} | {{ each[3] }} | {{ each[4] }}| {{each[5] | usd}} </option>
+                        {% endfor %}
+                        </select>
+                </div>
+                <div class="mb-3">
+                        <input class="form-control mx-auto w-auto" id="seats" name="seats" placeholder="Seats" type="number" min="1" step="any"  required>
+                </div>
+
+                <button class="btn btn-primary"  type="submit" >Book Tickets</button>
+        </form>
+
+
+    </form>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Add Buses 
+{% endblock %}
+
+{% block main %}    
+	<h1>Add Buses</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+	<form method="POST" action="/add_buses" enctype="multipart/form-data"> 
+    		<div class="mb-3">
+            		<input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="brand" name="brand" placeholder="Brand" type="text" required>
+	        </div>
+	        <div class="mb-3">
+        		<input class="form-control mx-auto w-auto" id="seats" name="seats" placeholder="Seats" type="number" required>
+	        </div>
+	        <div class="mb-3">
+	        	<input type="file" id="photo" name="photo" accept="image/*">
+		</div>
+	        <button class="btn btn-primary"  type="submit" >Add Bus</button>
+	</form>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Cancellation
+{% endblock %}
+
+{% block main %}
+
+    <h1>Cancel your tickets</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+        <form method="POST" action="/cancel_ticket">
+        <script>
+        function setvalue(tvalue){
+            document.getElementById('tripid').value = tvalue.trim();
+            }
+        </script>
+            <table>
+                   <thead>
+                          <tr>
+                              <th>From </th>
+                              <th>To</th>
+                              <th>Date of Travel</th>
+                              <th>Date Booked</th>
+                              <th>Seats</th>
+                              <th>Select</th>
+                         </tr>
+                  </thead>
+                  <tbody>
+                       {% for each in mybookings %}
+                          <tr>
+                            <td>{{ each[1] }}</td>
+                            <td>{{ each[2] }}</td>
+                            <td>{{ each[3] }}</td>
+                            <td>{{ each[4] }}</td>
+                            <td>{{ each[5] }}</td>
+                            <td><input name="cancl" id="cancl" type="radio" value=" {{ each[0] }} " onchange="setvalue(this.value)"> </select></td>
+                          </tr>
+                      {% endfor %}
+                  </tbody>
+           </table>
+                <div class="mb-3">
+                        <input class="form-control mx-auto w-auto" id="tripid" name="tripid" type="hidden" >
+                </div>
+                <button class="btn btn-primary"  type="submit" > Cancel Tickets</button>
+        </form>
+
+
+    </form>
+{% endblock %}

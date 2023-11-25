@@ -1,0 +1,147 @@
+/*----------------------------------------*/
+/* Template default CSS
+/*----------------------------------------*/
+
+body {
+	height: 100%;
+	font-family: 'PT Sans', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	color: #323232;
+	font-weight: 400;
+}
+
+h1 {
+	font-size: 70px;
+}
+
+h2 {
+	font-size: 36px;
+}
+
+h3 {
+	font-size: 30px;
+}
+
+h4 {
+	font-size: 24px;
+}
+
+h5 {
+	font-size: 18px;
+}
+
+h6 {
+	font-size: 16px;
+}
+
+p {
+	font-size: 16;
+	color: #898d90;
+	line-height: 1.8;
+}
+
+img {
+	max-width: 100%;
+}
+
+input:focus,
+select:focus,
+button:focus,
+textarea:focus {
+	outline: none;
+}
+
+a:hover,
+a:focus {
+	text-decoration: underline overline #FF3028;
+	outline: none;
+}
+
+ul,
+ol {
+	padding: 0;
+	margin: 0;
+}
+
+.header {
+    background-color: #477bff;
+    color: #fff;
+    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.contact-page {
+    background: #f7f9fb;
+    padding-top: 160px;
+}
+
+.contact-warp {
+    padding: 0 15px;
+}
+
+.contact-text {
+    padding-left: 87px;
+    padding-right: 35px;
+}
+
+.contact-text span {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #898d90;
+    letter-spacing: 2px;
+}
+
+.contact-text h2 {
+    margin-bottom: 30px;
+    font-size: 48px;
+}
+
+.contact-form {
+    margin-bottom: 85px;
+}
+.contact-form input,
+.contact-form textarea {
+        width: 100%;
+        border: none;
+        background: none;
+        padding-bottom: 10px;
+        margin-bottom: 28px;
+        font-size: 14px;
+        font-style: italic;
+        border-bottom: 2px solid #c5d2df;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+        border-bottom: 2px solid #1b1c2e;
+}
+
+.contact-form textarea {
+        height: 125px;
+}
+
+.contac-info p {
+        font-size: 15px;
+        color: #323232;
+}
+
+.map-warp {
+        padding-left: 40px;
+        padding-top: 15px;
+}
+.map-warp iframe {
+    height: 838px;
+    width: 100%;
+}

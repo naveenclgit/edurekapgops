@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Add Routes
+{% endblock %}
+
+{% block main %}    
+	<h1>Add Routes</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+	<form method="POST" action="/add_routes"> 
+    	<script>
+        function setvalue(tvalue){
+            document.getElementById('brand').value = tvalue.trim();
+            }
+    	</script>
+	
+		<div class="mb-3">
+	        	<select name="brand" onchange="setvalue(this.value)" style="width:200px">
+                	
+                    		<option value = "" selected="selected" disabled> </option>
+			{% for each in result %}
+                    		<option value = "{{ each[0] }}"> {{ each[1] }} </option>
+                	{% endfor %}
+            		</select> 
+		</div>
+	        <div class="mb-3">
+        		<input class="form-control mx-auto w-auto" id="fromloc" name="fromloc" placeholder="From" type="text" required> | 
+			<input class="form-control mx-auto w-auto" id="toloc" name="toloc" placeholder="To" type="text" required>
+	        </div>
+		<div class="mb-3">
+                        <input class="form-control mx-auto w-auto" id="date" name="date" placeholder="When" type="datetime-local" required>|
+                        <input class="form-control mx-auto w-auto" id="price" name="price" placeholder="Price" type="number" min="1" step="any"  required>
+                </div>
+		
+	        <button class="btn btn-primary"  type="submit" >Add Route</button>
+	</form>
+{% endblock %}
